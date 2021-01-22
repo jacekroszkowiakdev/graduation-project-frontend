@@ -1,0 +1,24 @@
+.product-list {
+}
+
+.product-list > h3 {
+}
+
+.product-list > ul {
+    display: flex;
+    flex-flow: row wrap;
+}
+
+.product-list > ul > li {
+    display: inline-block;
+    flex: 0 0 200px;
+    height: 300px;
+}
+
+.product-list > ul > li > p {
+}
+
+.product-list > ul > li > img {
+    width: 160px;
+    height: 160px;
+}
