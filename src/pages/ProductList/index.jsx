@@ -28,9 +28,10 @@ const ProductList = () => {
             <ul>
                 {productList.map((product, index) => (
                     <Product
-                        key={product.index}
+                        key={product.id}
                         index={index}
                         product={product}
+                        detailUrl={`/product/${product.id}`}
                     />
                 ))}
             </ul>

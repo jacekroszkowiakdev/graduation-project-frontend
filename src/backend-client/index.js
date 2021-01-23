@@ -15,5 +15,9 @@ class BackendClient {
     loadProducts() {
         return axios.get(`${this.baseUrl}/api/product/list`);
     }
+
+    getProductDetail(id) {
+        return axios.get(`${this.baseUrl}/api/product/${id}`);
+    }
 }
 export default BackendClient;
