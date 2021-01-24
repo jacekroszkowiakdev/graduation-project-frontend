@@ -23,19 +23,20 @@ const ProductList = () => {
     }, []);
 
     return (
-        <div className="product-list">
-            <h3>Our products:</h3>
-            <ul>
-                {productList.map((product, index) => (
-                    <Product
-                        key={product.id}
-                        index={index}
-                        product={product}
-                        detailUrl={`/product/${product.id}`}
-                    />
-                ))}
-            </ul>
-        </div>
+        <>
+            <div className="product-list">
+                <ul>
+                    {productList.map((product, index) => (
+                        <Product
+                            key={product.id}
+                            index={index}
+                            product={product}
+                            detailUrl={`/product/${product.id}`}
+                        />
+                    ))}
+                </ul>
+            </div>
+        </>
     );
 };
 

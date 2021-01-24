@@ -1,5 +1,6 @@
 import { createContext, useCallback, useState } from "react";
 import "./App.css";
+import CartButton from "./components/CartButton";
 
 export const ShopContext = createContext({
     cartItems: [],
@@ -9,6 +10,7 @@ export const ShopContext = createContext({
 
 function App(props) {
     const { children } = props;
+    console.log("App props are children: ", props);
     const [shoppingCartItems, setShoppingCartItems] = useState([]);
     const addCartItem = useCallback(
         (id) => setShoppingCartItems([...shoppingCartItems, id]),
@@ -25,7 +27,9 @@ function App(props) {
                     clearItems: () => setShoppingCartItems([]),
                 }}
             >
-                <header className="App-header" />
+                <header className="App-header">
+                    <CartButton />
+                </header>
                 <main>
                     <div className="main-content">{children}</div>
                 </main>
