@@ -48,7 +48,7 @@ function App(props) {
                     cartItems: shoppingCartItems,
                     addItem: addCartItem,
                     removeItem: removeCartItem,
-                    clearItems: () => setShoppingCartItems([]),
+                    clearItems: () => setShoppingCartItems({}),
                 }}
             >
                 <header className="App-header">

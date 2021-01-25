@@ -1,7 +1,7 @@
 import "./CheckoutPage.css";
 
 const CheckoutPage = () => {
-    return <div />;
+    return <div>FORMULARZ I WYBÓR PŁATNOŚCI</div>;
 };
 
 export default CheckoutPage;

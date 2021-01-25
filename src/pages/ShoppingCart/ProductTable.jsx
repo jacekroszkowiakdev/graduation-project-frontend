@@ -1,42 +1,55 @@
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import BackendClient from "../../backend-client";
 import { useContext } from "react";
 import { ShopContext } from "../../App";
 
 const ProductTable = ({ productQuantities }) => {
+    console.log(productQuantities);
     const [productDetails, setProductDetails] = useState([]);
+    const [loading, setLoading] = useState(false);
+    const [error, setError] = useState(undefined);
     const context = useContext(ShopContext);
-    // useEffect(
-    //     () =>
-    //         Object.keys(productQuantities).map((id) => {
-    //             const backend = new BackendClient();
-    //             return backend
-    //                 .getProductDetail(id)
-    //                 .then((res) =>
-    //                     setProductDetails([...productDetails, res.data])
-    //                 );
-    //         }),
+    const backend = useMemo(() => new BackendClient(), []);
+    const productsCalculated = useMemo(
+        () =>
+            productDetails.map((product) => ({
+                ...product,
+                total: product.price * productQuantities[product.id],
+            })),
+        [productDetails, productQuantities]
+    );
 
-    //     [productQuantities, setProductDetails]
-    // );
-    // console.log("productQuantities:", productQuantities);
-    // console.log("Product details", productDetails);
+    const subtotal = useMemo(
+        () => productsCalculated.reduce((sum, { total }) => (sum += total), 0),
+        [productsCalculated]
+    );
 
     useEffect(() => {
-        Object.keys(productQuantities).map(async (id) => {
-            const backend = new BackendClient();
+        const getProductDetails = async () => {
             try {
-                const res = await backend.getProductDetail(id);
-                setProductDetails([res.data]);
+                setError(undefined);
+                // setLoading(true);
+                const promises = Object.keys(productQuantities).map(
+                    async (id) => {
+                        const res = await backend.getProductDetail(id);
+                        return res.data;
+                    }
+                );
+                const details = await Promise.all(promises);
+                setProductDetails(details);
+                setLoading(false);
             } catch (err) {
-                console.log("/api/product/:id", err);
+                setError(err);
+                // setLoading(false);
             }
-        });
-    }, [productQuantities, setProductDetails]);
+        };
+        getProductDetails();
+    }, [productQuantities, backend, setProductDetails]);
 
     return (
         <table>
             <thead>
+                <th>Products in your cart:</th>
                 <tr>
                     <th>Product name</th>
                     <th>Quantity</th>
@@ -45,12 +58,19 @@ const ProductTable = ({ productQuantities }) => {
                 </tr>
             </thead>
             <tbody>
-                {productDetails.map((product) => (
-                    <tr key={product.id}>
+                {productDetails.map((product, id) => (
+                    <tr key={id}>
                         <td>{product.name}</td>
                         <td>{productQuantities[product.id]}</td>
-                        <td>{product.price}</td>
-                        <td>{productQuantities[product.id] * product.price}</td>
+                        <td>{product.price.toFixed(2)}</td>
+                        <td>
+                            {(
+                                product.price * productQuantities[product.id]
+                            ).toFixed(2)}
+                        </td>
+                        <td>{product.total}</td>
+                        <td></td>
+                        <td></td>
                         <td>
                             <button
                                 onClick={() => context.removeItem(product.id)}
@@ -64,7 +84,13 @@ const ProductTable = ({ productQuantities }) => {
                     </tr>
                 ))}
             </tbody>
-            <tfoot></tfoot>
+            <tfoot>
+                <hr></hr>
+                <tr>
+                    <th>subtotal:</th>
+                    <td>{subtotal.toFixed(2)}</td>
+                </tr>
+            </tfoot>
         </table>
     );
 };

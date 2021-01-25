@@ -21,6 +21,8 @@ const ProductList = () => {
             });
     }, []);
 
+    console.log("product list component productList: ", productList);
+
     return (
         <>
             <div className="product-list">
