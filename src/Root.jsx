@@ -4,6 +4,7 @@ import ProductList from "./pages/ProductList";
 import LoginPage from "./pages/LoginPage";
 import ProductDetailPage from "./pages/ProductDetailPage";
 import ShoppingCart from "./pages/ShoppingCart";
+import CheckoutPage from "./pages/CheckoutPage";
 
 const Root = () => {
     return (
@@ -14,6 +15,10 @@ const Root = () => {
                     <Route path="/login" component={LoginPage} />
                     <Route path="/product/:id" component={ProductDetailPage} />
                     <Route path="/shopping-cart/" component={ShoppingCart} />
+                    <Route
+                        path="/shopping-cart/checkout"
+                        component={CheckoutPage}
+                    />
                 </Switch>
             </App>
         </BrowserRouter>

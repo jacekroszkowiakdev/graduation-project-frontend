@@ -5,13 +5,12 @@ import "./ProductList.css";
 
 const ProductList = () => {
     const [productList, setProductList] = useState([]);
-    console.log("rendering product list", productList);
+
     useEffect(() => {
         const backend = new BackendClient();
         backend
             .loadProducts()
             .then((res) => {
-                console.log("data", res.data);
                 return setProductList(res.data);
             })
             .catch((err) => {

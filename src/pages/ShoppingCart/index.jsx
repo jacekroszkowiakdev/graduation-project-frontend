@@ -1,20 +1,23 @@
 import { useContext } from "react";
 import { ShopContext } from "../../App";
-import ProductList from "../ProductList";
+import ProductTable from "./ProductTable";
 import "./ShoppingCart.css";
 
 const ShoppingCart = ({ product, index, detailUrl }) => {
-    const context = useContext(ShopContext);
-    console.log("ShoppingCart element context:", context);
+    const context = {
+        ...useContext(ShopContext),
+        // cartItems: { 1: 10, 2: 3, 3: 50 },
+    };
+    console.log("ShoppingCart context: ", context);
 
     return (
         <>
-            {context.cartItems.length === 0 ? (
+            {Object.keys(context.cartItems).length === 0 ? (
                 <h1>Shopping cart is empty</h1>
             ) : (
                 <div>
                     <h1>Products in your cart:</h1>
-                    <ProductList products={context.cartItems} />
+                    <ProductTable productQuantities={context.cartItems} />
                 </div>
             )}
         </>
