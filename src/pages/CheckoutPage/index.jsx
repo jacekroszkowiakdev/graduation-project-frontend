@@ -6,7 +6,7 @@ import useCheckoutForm from "../../CustomHooks/CustomHooks";
 import "./CheckoutPage.css";
 
 const CheckoutPage = (props) => {
-    const [handleSubmit, handleInputChange, userInputs] = useCheckoutForm;
+    const { handleSubmit, handleInputChange, userInputs } = useCheckoutForm();
     const backend = useMemo(() => new BackendClient(), []);
     // const [checkout, setCheckout] = useState(false);
     // const [error, setError] = useState(undefined);
@@ -73,6 +73,7 @@ const CheckoutPage = (props) => {
                     type="text"
                     required
                 />
+
                 <button className="submit-button">Submit</button>
             </form>
             <PayPal />

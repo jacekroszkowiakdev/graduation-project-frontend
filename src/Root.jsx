@@ -12,13 +12,13 @@ const Root = () => {
             <App>
                 <Switch>
                     <Route path="/" exact component={ProductList} />
-                    <Route path="/login" component={LoginPage} />
-                    <Route path="/product/:id" component={ProductDetailPage} />
-                    <Route path="/shopping-cart/" component={ShoppingCart} />
+                    <Route path="/login/" component={LoginPage} />
+                    <Route path="/product/:id/" component={ProductDetailPage} />
                     <Route
                         path="/shopping-cart/checkout"
                         component={CheckoutPage}
                     />
+                    <Route path="/shopping-cart/" component={ShoppingCart} />
                 </Switch>
             </App>
         </BrowserRouter>
