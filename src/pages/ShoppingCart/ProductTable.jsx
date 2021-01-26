@@ -6,10 +6,11 @@ import { ShopContext } from "../../App";
 const ProductTable = ({ productQuantities }) => {
     console.log(productQuantities);
     const [productDetails, setProductDetails] = useState([]);
-    const [loading, setLoading] = useState(false);
+    // const [loading, setLoading] = useState(false);
     const [error, setError] = useState(undefined);
     const context = useContext(ShopContext);
     const backend = useMemo(() => new BackendClient(), []);
+
     const productsCalculated = useMemo(
         () =>
             productDetails.map((product) => ({
@@ -37,9 +38,10 @@ const ProductTable = ({ productQuantities }) => {
                 );
                 const details = await Promise.all(promises);
                 setProductDetails(details);
-                setLoading(false);
+                // setLoading(false);
             } catch (err) {
                 setError(err);
+                console.log("product load unsuccessful: ", err);
                 // setLoading(false);
             }
         };

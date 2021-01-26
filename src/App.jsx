@@ -53,6 +53,10 @@ function App(props) {
             >
                 <header className="App-header">
                     <CartButton />
+                    <div className="cart-counter">
+                        {Object.keys(shoppingCartItems).length > 0 &&
+                            Object.keys(shoppingCartItems).length}
+                    </div>
                 </header>
                 <main>
                     <div className="main-content">{children}</div>

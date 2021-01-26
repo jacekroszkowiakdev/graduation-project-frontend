@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { ShopContext } from "../../App";
 import ProductTable from "./ProductTable";
 import "./ShoppingCart.css";
@@ -7,7 +7,6 @@ const ShoppingCart = () => {
     const context = {
         ...useContext(ShopContext),
     };
-    console.log("ShoppingCart context: ", context);
 
     return (
         <>
