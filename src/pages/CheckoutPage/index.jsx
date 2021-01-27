@@ -1,12 +1,12 @@
 import PayPal from "../../components/PayPal";
 import BackendClient from "../../backend-client";
 import { useContext, useState, useMemo } from "react";
-import useCheckoutForm from "../../CustomHooks/CustomHooks";
+import useHandleForm from "../../CustomHooks/CustomHooks";
 // import { ShopContext } from "../../App";
 import "./CheckoutPage.css";
 
 const CheckoutPage = (props) => {
-    const { handleSubmit, handleInputChange, userInputs } = useCheckoutForm();
+    const { handleSubmit, handleInputChange, userInputs } = useHandleForm();
     const backend = useMemo(() => new BackendClient(), []);
     // const [checkout, setCheckout] = useState(false);
     // const [error, setError] = useState(undefined);
@@ -31,7 +31,7 @@ const CheckoutPage = (props) => {
                     type="text"
                     required
                 />
-                <label>Street and house number</label>
+                <label>Street</label>
                 <input
                     onChange={handleInputChange}
                     value={userInputs.streetName}
@@ -40,6 +40,7 @@ const CheckoutPage = (props) => {
                     type="text"
                     required
                 />
+                <label>House numer</label>
                 <input
                     onChange={handleInputChange}
                     value={userInputs.houseNumber}
@@ -76,7 +77,7 @@ const CheckoutPage = (props) => {
 
                 <button className="submit-button">Submit</button>
             </form>
-            <PayPal />
+            <PayPal className="payment-buttons" />
         </div>
     );
 };
