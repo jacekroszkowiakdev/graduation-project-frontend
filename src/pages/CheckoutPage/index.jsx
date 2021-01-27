@@ -8,8 +8,25 @@ import "./CheckoutPage.css";
 const CheckoutPage = (props) => {
     const { handleSubmit, handleInputChange, userInputs } = useHandleForm();
     const backend = useMemo(() => new BackendClient(), []);
+    const address = false;
     // const [checkout, setCheckout] = useState(false);
     // const [error, setError] = useState(undefined);
+
+    // const addCartItem = useCallback(
+    //     (id) => {
+    //         if (shoppingCartItems[id] === undefined)
+    //             setShoppingCartItems({ ...shoppingCartItems, [id]: 1 });
+    //         else {
+    //             setShoppingCartItems({
+    //                 ...shoppingCartItems,
+    //                 [id]: shoppingCartItems[id] + 1,
+    //             });
+    //         }
+    //     },
+
+    //     [shoppingCartItems, setShoppingCartItems]
+    // );
+    // useCallback:
 
     return (
         <div className="order-submit-container">
@@ -77,7 +94,7 @@ const CheckoutPage = (props) => {
 
                 <button className="submit-button">Submit</button>
             </form>
-            <PayPal className="payment-buttons" />
+            {address && <PayPal className="payment-buttons" />}
         </div>
     );
 };

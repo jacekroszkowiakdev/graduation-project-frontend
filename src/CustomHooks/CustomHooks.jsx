@@ -8,6 +8,7 @@ const useHandleForm = (callback = () => {}) => {
             evt.preventDefault();
         }
         callback();
+        console.log("handleSubmit fired!");
     };
 
     const handleInputChange = (evt) => {
@@ -16,6 +17,7 @@ const useHandleForm = (callback = () => {}) => {
             ...userInputs,
             [evt.target.name]: evt.target.val,
         }));
+        console.log("handleInputChange fired: ", userInputs);
     };
     return {
         handleSubmit,
