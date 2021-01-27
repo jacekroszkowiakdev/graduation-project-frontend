@@ -15,12 +15,15 @@ const ShoppingCart = () => {
             {Object.keys(context.cartItems).length === 0 ? (
                 <h1>Shopping cart is empty</h1>
             ) : (
-                <div>
+                <div className="shopping-cart-summary">
                     <h1>Products in your cart:</h1>
-                    <ProductTable productQuantities={context.cartItems} />
-                    <div className="checkout-button">
-                        <Link to={"/shopping-cart/checkout"}>To checkout</Link>
-                    </div>
+                    <ProductTable
+                        className="product-table"
+                        productQuantities={context.cartItems}
+                    />
+                    <Link to={"/shopping-cart/checkout"}>
+                        <button className="checkout-button">To checkout</button>
+                    </Link>
                 </div>
             )}
         </>

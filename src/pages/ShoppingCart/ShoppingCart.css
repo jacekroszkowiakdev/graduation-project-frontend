@@ -1,4 +1,5 @@
-.order-submit-container {
+.order-submit-container,
+.shopping-cart-summary {
     background-color: white;
     display: flex;
     flex-flow: column;
@@ -6,6 +7,63 @@
     height: 90vh;
     align-items: center;
     padding: 25px;
+}
+
+.product-table {
+    border-collapse: collapse;
+    border: thin solid black;
+    border-radius: 4px;
+    margin: 0;
+    font-size: 0.9em;
+    font-family: sans-serif;
+    width: 650px;
+    min-width: 400px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    padding: 0;
+}
+
+thead {
+    text-align: right;
+}
+
+.product-table td {
+    text-align: right;
+}
+
+.product-table th,
+.product-table td {
+    padding: 12px 15px;
+}
+
+.quantities-button {
+    height: 20px;
+    width: 20px;
+    border: thin solid black;
+    border-radius: 50px;
+    padding: 0px;
+    margin: 3px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+.product-table > tbody {
+    padding: 20px;
+    border-bottom: 2px solid;
+}
+
+.product-table tbody tr {
+    border-bottom: 1px solid #dddddd;
+}
+
+.product-table tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3;
+}
+
+.product-table tbody tr:last-of-type {
+    border-bottom: 2px solid black;
+}
+
+.subtotal {
+    text-align: right;
 }
 
 form {
@@ -16,7 +74,9 @@ form {
 .submit-button {
     width: 100px;
     margin: 15px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
 }
+
 .paypal-buttons {
     margin-top: 25px;
 }
@@ -24,18 +84,10 @@ form {
 .checkout-button {
     border: 2px solid black;
     border-radius: 3px;
-    text-decoration: none;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
 }
 
 .checkout-button:hover {
     border-radius: 16px;
     transition: all 0.2s ease 0s;
-}
-
-.quantities-button {
-    height: 20px;
-    width: 20px;
-    border-radius: 50px;
-    padding: 0px;
-    margin: 3px;
 }

@@ -40,7 +40,7 @@ const CheckoutPage = (props) => {
                     type="text"
                     required
                 />
-                <label>House numer</label>
+                <label>House number</label>
                 <input
                     onChange={handleInputChange}
                     value={userInputs.houseNumber}

@@ -16,7 +16,7 @@ const Root = () => {
                     <Route path="/" exact component={ProductList} />
                     <Route path="/login/" component={LoginPage} />
                     <Route path="/logout" component={LogoutPage} />
-                    <Route path="/registration" component={RegisterPage} />
+                    <Route path="/register" component={RegisterPage} />
                     <Route path="/product/:id/" component={ProductDetailPage} />
                     <Route
                         path="/shopping-cart/checkout"

@@ -11,13 +11,16 @@ const RegisterPage = () => {
 
     return (
         <div className="register-form-container">
+            <h4>
+                Purchase is only allowed for registered users. Please provide
+                the following to register your user account
+            </h4>
             <form onSubmit={handleSubmit}>
                 <label>First Name</label>
                 <input
                     onChange={handleInputChange}
                     value={userInputs.firstName}
                     name="first"
-                    placeholder="first name"
                     type="text"
                     required
                 />
@@ -25,7 +28,7 @@ const RegisterPage = () => {
                 <input
                     onChange={handleInputChange}
                     value={userInputs.lastName}
-                    placeholder="last name"
+                    name="last name"
                     type="text"
                     required
                 />
@@ -34,7 +37,6 @@ const RegisterPage = () => {
                     onChange={handleInputChange}
                     value={userInputs.streetName}
                     name="email"
-                    placeholder="email"
                     type="email"
                     required
                 />
@@ -43,7 +45,6 @@ const RegisterPage = () => {
                     onChange={handleInputChange}
                     value={userInputs.houseNumber}
                     name="password"
-                    placeholder="password"
                     type="password"
                     required
                 />

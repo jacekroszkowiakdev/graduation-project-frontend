@@ -49,14 +49,13 @@ const ProductTable = ({ productQuantities }) => {
     }, [productQuantities, backend, setProductDetails]);
 
     return (
-        <table>
+        <table className="product-table">
             <thead>
-                <th>Products in your cart:</th>
                 <tr>
                     <th>Product name</th>
-                    <th>Quantity</th>
-                    <th>Unit price</th>
-                    <th>Total price</th>
+                    <th className="quantity">Quantity</th>
+                    <th className="price">Unit price</th>
+                    <th className="price">Total price</th>
                 </tr>
             </thead>
             <tbody>
@@ -85,17 +84,13 @@ const ProductTable = ({ productQuantities }) => {
                             ).toFixed(2)}{" "}
                             €
                         </td>
-                        <td>{product.total}</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        <td className="price">{product.total}</td>
                     </tr>
                 ))}
             </tbody>
             <tfoot>
-                <hr></hr>
-                <tr>
-                    <th>subtotal:</th>
+                <tr className="subtotal">
+                    <th colspan="3">subtotal:</th>
                     <td>{subtotal.toFixed(2)} €</td>
                 </tr>
             </tfoot>
