@@ -20,3 +20,22 @@ form {
 .paypal-buttons {
     margin-top: 25px;
 }
+
+.checkout-button {
+    border: 2px solid black;
+    border-radius: 3px;
+    text-decoration: none;
+}
+
+.checkout-button:hover {
+    border-radius: 16px;
+    transition: all 0.2s ease 0s;
+}
+
+.quantities-button {
+    height: 20px;
+    width: 20px;
+    border-radius: 50px;
+    padding: 0px;
+    margin: 3px;
+}

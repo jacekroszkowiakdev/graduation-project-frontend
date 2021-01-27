@@ -1,4 +1,4 @@
-import { useState, useCallback } from "react";
+import { useState, useCallback, useMemo } from "react";
 import BackendClient from "../../backend-client";
 import useHandleForm from "../../CustomHooks/CustomHooks";
 import "./RegisterPage.css";
@@ -6,8 +6,8 @@ import "./RegisterPage.css";
 const RegisterPage = () => {
     const { handleSubmit, handleInputChange, userInputs } = useHandleForm();
     const backend = useMemo(() => new BackendClient(), []);
-    // const [checkout, setCheckout] = useState(false);
-    // const [error, setError] = useState(undefined);
+    const [username, setUsername] = useState("");
+    const [password, setPassword] = useState("");
 
     return (
         <div className="register-form-container">

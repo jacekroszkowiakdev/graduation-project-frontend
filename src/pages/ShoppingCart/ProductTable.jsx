@@ -56,33 +56,39 @@ const ProductTable = ({ productQuantities }) => {
                     <th>Product name</th>
                     <th>Quantity</th>
                     <th>Unit price</th>
-                    <th>total price</th>
+                    <th>Total price</th>
                 </tr>
             </thead>
             <tbody>
                 {productDetails.map((product, id) => (
                     <tr key={id}>
                         <td>{product.name}</td>
-                        <td>{productQuantities[product.id]}</td>
-                        <td>{product.price.toFixed(2)}</td>
-                        <td>
-                            {(
-                                product.price * productQuantities[product.id]
-                            ).toFixed(2)}
-                        </td>
-                        <td>{product.total}</td>
-                        <td></td>
-                        <td></td>
                         <td>
                             <button
+                                className="quantities-button"
                                 onClick={() => context.removeItem(product.id)}
                             >
                                 -
                             </button>
-                            <button onClick={() => context.addItem(product.id)}>
+                            {productQuantities[product.id]}
+                            <button
+                                className="quantities-button"
+                                onClick={() => context.addItem(product.id)}
+                            >
                                 +
                             </button>
                         </td>
+                        <td>{product.price.toFixed(2)} €</td>
+                        <td>
+                            {(
+                                product.price * productQuantities[product.id]
+                            ).toFixed(2)}{" "}
+                            €
+                        </td>
+                        <td>{product.total}</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
                     </tr>
                 ))}
             </tbody>
@@ -90,7 +96,7 @@ const ProductTable = ({ productQuantities }) => {
                 <hr></hr>
                 <tr>
                     <th>subtotal:</th>
-                    <td>{subtotal.toFixed(2)}</td>
+                    <td>{subtotal.toFixed(2)} €</td>
                 </tr>
             </tfoot>
         </table>

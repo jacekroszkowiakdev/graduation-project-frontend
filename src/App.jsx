@@ -1,6 +1,8 @@
 import { createContext, useCallback, useState } from "react";
 import "./App.css";
 import CartButton from "./components/CartButton";
+import AccountButton from "./components/AccountButton";
+import { Button } from "@material-ui/core";
 
 export const ShopContext = createContext({
     cartItems: {},
@@ -52,11 +54,12 @@ function App(props) {
                 }}
             >
                 <header className="App-header">
-                    <CartButton />
+                    <CartButton className="cart-button" />
                     <div className="cart-counter">
                         {Object.keys(shoppingCartItems).length > 0 &&
                             Object.keys(shoppingCartItems).length}
                     </div>
+                    <AccountButton className="account-button" />
                 </header>
                 <main>
                     <div className="main-content">{children}</div>

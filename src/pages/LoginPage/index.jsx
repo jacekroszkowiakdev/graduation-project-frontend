@@ -24,8 +24,8 @@ const LoginPage = () => {
             <h1>Log in with your email</h1>
             <form onSubmit={handleSubmit}>
                 <div>
-                    <label>Email Address</label>
                     <input
+                        placeholder="email"
                         type="email"
                         name="email"
                         onChange={handleInputChange}
@@ -34,17 +34,16 @@ const LoginPage = () => {
                     />
                 </div>
                 <div>
-                    <label>Password</label>
                     <input
+                        placeholder="password"
                         type="password"
                         name="password"
                         onChange={handleInputChange}
                         value={userInputs.password}
                     />
                 </div>
-
-                <button type="sign-up-button">Sign Up</button>
             </form>
+            <button className="sign-up-button">Sign Up</button>
         </div>
     );
 };

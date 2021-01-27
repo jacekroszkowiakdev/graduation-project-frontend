@@ -5,11 +5,11 @@ class BackendClient {
     baseUrl = "http://localhost:3004";
 
     login(user, password) {
-        return axios.post(`${this.baseUrl}/login`, (user, password));
+        // return axios.post(`${this.baseUrl}/login`, (user, password));
     }
 
     logout() {
-        return axios.post(`${this.baseUrl}/logout`, (user, password));
+        // return axios.post(`${this.baseUrl}/logout`, (user, password));
     }
 
     loadProducts() {
