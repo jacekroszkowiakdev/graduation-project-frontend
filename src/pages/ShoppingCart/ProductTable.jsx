@@ -8,8 +8,6 @@ export const orderContext = createContext({
     subtotal: null,
 });
 
-console.log("order context: ", orderContext);
-
 const ProductTable = ({ productQuantities }) => {
     const [productDetails, setProductDetails] = useState([]);
     // const [loading, setLoading] = useState(false);

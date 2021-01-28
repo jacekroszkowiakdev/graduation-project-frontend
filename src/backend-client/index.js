@@ -19,5 +19,12 @@ class BackendClient {
     getProductDetail(id) {
         return axios.get(`${this.baseUrl}/api/product/${id}`);
     }
+
+    sendShippingAddress(userInputs) {
+        return axios.post(
+            `${this.baseUrl}/api/order/placesetRecipentAddress`,
+            userInputs
+        );
+    }
 }
 export default BackendClient;
