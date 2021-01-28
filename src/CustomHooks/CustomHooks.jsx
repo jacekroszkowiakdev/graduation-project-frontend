@@ -12,13 +12,15 @@ const useHandleForm = (callback = () => {}) => {
     };
 
     const handleInputChange = (evt) => {
-        evt.persist();
+        // evt.persist();
+        console.log("evt: ", evt.target.value);
         setUserInputs((userInputs) => ({
             ...userInputs,
-            [evt.target.name]: evt.target.val,
+            [evt.target.name]: evt.target.value,
         }));
         console.log("handleInputChange fired: ", userInputs);
     };
+    console.log("userInputs", userInputs);
     return {
         handleSubmit,
         handleInputChange,

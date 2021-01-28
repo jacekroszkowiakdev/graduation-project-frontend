@@ -1,4 +1,11 @@
+* {
+    box-sizing: border-box;
+}
+
 .product-list {
+    padding-left: 100px;
+    padding-right: 100px;
+    margin: 0;
 }
 
 .product-list > h3 {
@@ -7,9 +14,11 @@
 .product-list > ul {
     display: flex;
     flex-flow: row wrap;
+    justify-content: space-between;
 }
 
 .product-list > ul > li {
+    width: 30%;
     display: inline-block;
     flex: 0 0 200px;
     height: 300px;
@@ -20,7 +29,9 @@
     height: 100%;
 }
 
-.product-list > ul > li p {
+.display-name {
+    text-decoration: none;
+    font-size: 1rem;
 }
 
 .product-list > ul > li img {

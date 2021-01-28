@@ -1,10 +1,16 @@
 import { useEffect, useMemo, useState } from "react";
 import BackendClient from "../../backend-client";
-import { useContext } from "react";
+import { useContext, createContext } from "react";
 import { ShopContext } from "../../App";
 
+export const orderContext = createContext({
+    productsCalculated: {},
+    subtotal: null,
+});
+
+console.log("order context: ", orderContext);
+
 const ProductTable = ({ productQuantities }) => {
-    console.log(productQuantities);
     const [productDetails, setProductDetails] = useState([]);
     // const [loading, setLoading] = useState(false);
     const [error, setError] = useState(undefined);

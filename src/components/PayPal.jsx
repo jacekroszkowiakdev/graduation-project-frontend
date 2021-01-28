@@ -8,7 +8,7 @@ const PayPal = () => {
     useEffect(() => {
         window.paypal
             .Buttons({
-                creatOrder: (data, actions, err) => {
+                createOrder: (data, actions, err) => {
                     return actions.order.create({
                         intent: "CAPTURE",
                         purchase_units: [
@@ -16,15 +16,16 @@ const PayPal = () => {
                                 description: "some item",
                                 amount: {
                                     currency: "EUR",
-                                    value: 650.0,
+                                    value: 5.0,
                                 },
                             },
                         ],
                     });
                 },
                 onApprove: async (data, actions, err) => {
-                    const order = await actions.order.caputre();
-                    console.log("Paypal order success: ", order);
+                    const order = await actions.order.capture();
+                    console.log("Paypal order success, order_details: ", order);
+                    console.log("paypal data: ", data);
                 },
                 onError: (err) => {
                     setError(err);

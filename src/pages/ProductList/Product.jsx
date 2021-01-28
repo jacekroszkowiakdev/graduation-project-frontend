@@ -12,8 +12,8 @@ const Product = ({ product, index, detailUrl }) => {
             </button>
             <Link to={detailUrl}>
                 <img src={product.image} alt={product.description} />
-                <p>{product.name}</p>
             </Link>
+            <h5 className="display-name">{product.name}</h5>
         </li>
     );
 };

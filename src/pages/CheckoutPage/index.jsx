@@ -1,35 +1,20 @@
 import PayPal from "../../components/PayPal";
 import BackendClient from "../../backend-client";
-import { useContext, useState, useMemo } from "react";
+import { useContext, useCallback, useState, useMemo } from "react";
 import useHandleForm from "../../CustomHooks/CustomHooks";
-// import { ShopContext } from "../../App";
-import "./CheckoutPage.css";
+// import orderContext from "./ShoppingCart/ProductTable";
 
 const CheckoutPage = (props) => {
     const { handleSubmit, handleInputChange, userInputs } = useHandleForm();
     const backend = useMemo(() => new BackendClient(), []);
-    const address = false;
-    // const [checkout, setCheckout] = useState(false);
-    // const [error, setError] = useState(undefined);
-
-    // const addCartItem = useCallback(
-    //     (id) => {
-    //         if (shoppingCartItems[id] === undefined)
-    //             setShoppingCartItems({ ...shoppingCartItems, [id]: 1 });
-    //         else {
-    //             setShoppingCartItems({
-    //                 ...shoppingCartItems,
-    //                 [id]: shoppingCartItems[id] + 1,
-    //             });
-    //         }
-    //     },
-
-    //     [shoppingCartItems, setShoppingCartItems]
-    // );
-    // useCallback:
+    // const context = useContext(orderContext);
+    const address = userInputs;
+    console.log("address", address);
+    // console.log("context productsCalculated: ", context.subtotal);
 
     return (
         <div className="order-submit-container">
+            <h3>Please fill in your shipping address:</h3>
             <form onSubmit={handleSubmit}>
                 <label>First Name</label>
                 <input
@@ -44,6 +29,7 @@ const CheckoutPage = (props) => {
                 <input
                     onChange={handleInputChange}
                     value={userInputs.lastName}
+                    name="last"
                     placeholder="last name"
                     type="text"
                     required
@@ -78,6 +64,7 @@ const CheckoutPage = (props) => {
                 <input
                     onChange={handleInputChange}
                     value={userInputs.postCode}
+                    name="PostCode"
                     placeholder="post code"
                     type="number"
                     required
@@ -94,7 +81,8 @@ const CheckoutPage = (props) => {
 
                 <button className="submit-button">Submit</button>
             </form>
-            {address && <PayPal className="payment-buttons" />}
+            {/* {address && <PayPal className="payment-buttons" />} */}
+            {/* <PayPal className="payment-buttons" /> */}
         </div>
     );
 };
